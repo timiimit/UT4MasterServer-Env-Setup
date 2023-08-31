@@ -1,12 +1,12 @@
 #!/bin/sh
 
 echo "Installing apache..."
-yum install -y httpd mod_ssl
+yum -q -y install httpd mod_ssl
 
 # generate file with list of cloudflare proxy IPs
-curl https://www.cloudflare.com/ips-v4 > /etc/httpd/proxy_list.txt
+curl -s https://www.cloudflare.com/ips-v4 > /etc/httpd/proxy_list.txt
 echo >> /etc/httpd/proxy_list.txt
-curl https://www.cloudflare.com/ips-v6 >> /etc/httpd/proxy_list.txt
+curl -s https://www.cloudflare.com/ips-v6 >> /etc/httpd/proxy_list.txt
 
 # now create ut4master.conf in /etc/httpd/conf.d/ and put in the following:
 cat >/etc/httpd/conf.d/ut4master.conf << EOF
@@ -29,3 +29,5 @@ RemoteIPTrustedProxyList proxy_list.txt
     ProxyPassReverse / http://127.0.0.1:5000/
 </VirtualHost>
 EOF
+
+systemctl enable httpd
