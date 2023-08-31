@@ -17,4 +17,4 @@ cd UT4MasterServer-Env
 mv ../config.cfg ./
 
 # after getting whole repo, continue with other tasks
-source post_download.sh
+source first/post_download.sh
