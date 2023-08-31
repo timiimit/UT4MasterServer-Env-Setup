@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "disk/partition list:"
-lsblk -f
+lsblk
 
 read -p "Enter empty disk for swap partition (leave empty to skip):" SWAP_DISK
 if [ -n $SWAP_DISK ]; then

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "disk/partition list:"
-lsblk -f
+lsblk
 
 read -p "Enter empty disk for data partition (leave empty to skip):" DATA_DISK
 if [ -n $DATA_DISK ]; then
@@ -19,5 +19,5 @@ if [ -n $DATA_DISK ]; then
 	DATA_UUID=$(blkid $DATA_PARTITION -s UUID -o value)
 
 	# add entry to /etc/fstab to auto-mount data partition
-	echo "UUID=$DATA_UUID $DATA_PATH ext4 defaults 0 2" >> /etc/fstab
+	echo "UUID=$DATA_UUID /app ext4 defaults 0 2" >> /etc/fstab
 fi
