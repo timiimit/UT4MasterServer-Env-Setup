@@ -14,5 +14,7 @@ yum install -y git
 git clone https://github.com/timiimit/UT4MasterServer-Env.git
 cd UT4MasterServer-Env
 
+mv ../config.cfg ./
+
 # after getting whole repo, continue with other tasks
 source post_download.sh

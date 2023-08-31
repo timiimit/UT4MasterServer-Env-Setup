@@ -16,5 +16,12 @@ to do this:
 - upload the file to target host
 - run 'tic terminfo' on the host in the same directory as the file resides
 
-# Setup from scratch
-Run `source <(curl -s https://raw.githubusercontent.com/timiimit/UT4MasterServer-Env/first/run.sh)`
+# Setup new empty server
+
+- Download template for configuration file:
+```curl -o config.cfg https://raw.githubusercontent.com/timiimit/UT4MasterServer-Env/first/config_empty.cfg```
+
+- Edit downloaded `config_empty.cfg` file
+
+- Run the following command and follow the prompts:
+```source <(curl -s https://raw.githubusercontent.com/timiimit/UT4MasterServer-Env/first/run.sh)```
