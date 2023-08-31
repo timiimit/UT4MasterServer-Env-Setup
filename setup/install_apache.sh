@@ -11,7 +11,7 @@ curl https://www.cloudflare.com/ips-v6 >> /etc/httpd/proxy_list.txt
 # now create ut4master.conf in /etc/httpd/conf.d/ and put in the following:
 cat >/etc/httpd/conf.d/ut4master.conf << EOF
 
-MaxRequestWorkers 16
+MaxRequestWorkers 32
 RemoteIPHeader CF-Connecting-IP
 RemoteIPTrustedProxyList proxy_list.txt
 
