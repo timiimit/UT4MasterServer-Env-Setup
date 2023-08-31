@@ -17,4 +17,4 @@ to do this:
 - run 'tic terminfo' on the host in the same directory as the file resides
 
 # Setup from scratch
-Run `sh $(wget https://github.com/timiimit/UT4MasterServer-Env/first/run.sh)`
+Run `source <(curl -s https://raw.githubusercontent.com/timiimit/UT4MasterServer-Env/first/run.sh)`
