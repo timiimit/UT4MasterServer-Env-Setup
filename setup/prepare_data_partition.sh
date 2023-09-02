@@ -19,5 +19,9 @@ if [ -n $DATA_DISK ]; then
 	DATA_UUID=$(blkid $DATA_PARTITION -s UUID -o value)
 
 	# add entry to /etc/fstab to auto-mount data partition
-	echo "UUID=$DATA_UUID /app ext4 defaults 0 2" >> /etc/fstab
+	echo "UUID=$DATA_UUID $ROOT_DIR_APP ext4 defaults 0 2" >> /etc/fstab
+
+	return "1"
 fi
+
+return "0"

@@ -20,4 +20,8 @@ if [ -n $SWAP_DISK ]; then
 
 	# add entry to /etc/fstab to auto-mount swap partition
 	echo "UUID=$SWAP_UUID swap swap defaults 0 0" >> /etc/fstab
+
+	return "1"
 fi
+
+return "0"

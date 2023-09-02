@@ -2,19 +2,23 @@
 
 # give root user a password
 sudo passwd root
+
+# switch to root user
 su
 
+source config.cfg
+
 # update all packages
-yum update -y
+dnf update -y
 
 # install git
-yum install -y git
+dnf install -y git
 
 # clone this repo
-git clone https://github.com/timiimit/UT4MasterServer-Env.git
-cd UT4MasterServer-Env
+git clone "$REPO_URL_ENV_SETUP"
 
-mv ../config.cfg ./
+# NOTE: this naively assumes that repo name is exactly this
+cd UT4MasterServer-Env-Setup
 
 # after getting whole repo, continue with other tasks
 source first/post_download.sh

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Installing apache..."
-yum -q -y install httpd mod_ssl
+dnf -q -y install httpd mod_ssl
 
 # generate file with list of cloudflare proxy IPs
 curl -s https://www.cloudflare.com/ips-v4 > /etc/httpd/proxy_list.txt
@@ -17,13 +17,13 @@ RemoteIPTrustedProxyList proxy_list.txt
 
 <VirtualHost *:80>
     DocumentRoot "/var/www/html"
-    ServerName "$WEBSITE_DOMAIN_NAME"
+    ServerName "$DOMAIN_NAME_WEBSITE"
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5001/
     ProxyPassReverse / http://127.0.0.1:5001/
 </VirtualHost>
 <VirtualHost *:80>
-    ServerName "$API_DOMAIN_NAME"
+    ServerName "$DOMAIN_NAME_API"
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/

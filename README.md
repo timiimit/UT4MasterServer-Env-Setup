@@ -1,7 +1,7 @@
 **BEWARE: code hasn't been tested yet!!!**
 
-# UT4MasterServer-Env
-Helpful information and scripts for the environment of UT4MasterServer. Code is specifically written for empty *Amazon Linux 2023* kernel.
+# UT4MasterServer-Env-Setup
+Helpful information and scripts for setting up the initial environment of UT4MasterServer. Code is specifically written for empty *Amazon Linux 2023* kernel.
 
 # Hardware requirements/expectations
 - 1x disk for swap partition (any size)
@@ -21,7 +21,7 @@ to do this:
 - Download template for configuration file:
 ```curl -o config.cfg https://raw.githubusercontent.com/timiimit/UT4MasterServer-Env/first/config_empty.cfg```
 
-- Edit downloaded `config_empty.cfg` file
+- Edit downloaded `config.cfg` file
 
 - Run the following command and follow the prompts:
 ```source <(curl -s https://raw.githubusercontent.com/timiimit/UT4MasterServer-Env/first/run.sh)```

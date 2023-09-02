@@ -1,7 +1,6 @@
 #!/bin/sh
 
 echo "Installing crontab..."
-
-yum -q -y install cronie
+dnf -q -y install cronie
 
 systemctl enable crond
