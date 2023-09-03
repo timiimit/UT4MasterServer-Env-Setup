@@ -11,4 +11,4 @@ cat >/usr/local/bin/ut4ms << "EOF"
 #!/bin/bash
 "$ROOT_DIR_ENV/ut4ms.sh" "$@"
 EOF
-chmod +x /usr/local/bin/ut4ms
+chmod 755 /usr/local/bin/ut4ms
