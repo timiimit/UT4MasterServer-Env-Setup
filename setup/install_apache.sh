@@ -14,20 +14,7 @@ cat >/etc/httpd/conf.d/ut4master.conf << EOF
 MaxRequestWorkers 32
 RemoteIPHeader CF-Connecting-IP
 RemoteIPTrustedProxyList proxy_list.txt
-
-<VirtualHost *:80>
-    DocumentRoot "/var/www/html"
-    ServerName "$DOMAIN_NAME_WEBSITE"
-    ProxyPreserveHost On
-    ProxyPass / http://127.0.0.1:5001/
-    ProxyPassReverse / http://127.0.0.1:5001/
-</VirtualHost>
-<VirtualHost *:80>
-    ServerName "$DOMAIN_NAME_API"
-    ProxyPreserveHost On
-    ProxyPass / http://127.0.0.1:5000/
-    ProxyPassReverse / http://127.0.0.1:5000/
-</VirtualHost>
+DocumentRoot "/var/www/html"
 EOF
 
 systemctl enable httpd
