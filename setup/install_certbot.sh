@@ -3,11 +3,19 @@
 echo "Installing certbot..."
 dnf -q -y install python3-pip
 
-# install certbot (https://unix.stackexchange.com/questions/744633/how-to-install-certbot-via-snap-on-amazon-linux-2023)
+# create python's virtual environment for certbot
 python3 -m venv /opt/certbot
+
+# install a script for installing/updating certbot
+cat >/usr/local/bin/update-certbot << "EOF"
+#!/bin/bash
 source /opt/certbot/bin/activate
-pip install certbot
-deactivate
+pip install --upgrade certbot
+EOF
+chmod 755 /usr/local/bin/update-certbot
+
+# actually install certbot
+update-certbot
 
 # install a script for executing certbot
 cat >/usr/local/bin/certbot << "EOF"
@@ -15,4 +23,5 @@ cat >/usr/local/bin/certbot << "EOF"
 source /opt/certbot/bin/activate
 /opt/certbot/bin/certbot "$@"
 EOF
-chmod +x /usr/local/bin/certbot
+chmod 755 /usr/local/bin/certbot
+
