@@ -8,7 +8,6 @@ echo ""
 setup/install_docker.sh
 setup/install_apache.sh
 setup/install_certbot.sh
-setup/install_crontab.sh
 setup/install_ut4ms.sh
 
 # prepare partitions
